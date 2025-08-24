@@ -1,0 +1,423 @@
+```html name=index.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUIDATE PSM - Servicio Preventivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #2c9c91;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            padding-top: 80px;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(44, 156, 145, 0.8)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+        
+        .benefit-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 100%;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .service-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .service-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .service-list li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .disclaimer {
+            background-color: #fff9e6;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .form-section {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .required-field::after {
+            content: "*";
+            color: red;
+            margin-left: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <i class="fas fa-heartbeat me-2"></i>CUIDATE PSM
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#benefits">Beneficios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">CUIDATE PSM</h1>
+            <p class="lead">Servicio Preventivo - Una colaboración entre Plan de Salud Menonita y PR Concierge Med</p>
+            <p class="mt-4">Programa de prevención y cuidado de salud para suscriptores de Plan de Salud Menonita</p>
+            <a href="#register" class="btn btn-light btn-lg mt-3">Registrarse Ahora</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">¿Quiénes pueden integrarse a PSM Cuidate?</h2>
+                    <p class="lead">Suscriptores de 21 años o más participantes de comercial grupal pueden recibir este servicio.</p>
+                    <p>Nuestro programa está diseñado para ofrecer atención preventiva personalizada a los afiliados de Plan de Salud Menonita, con el objetivo de detectar tempranamente factores de riesgo y condiciones de salud.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Medical professionals" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">¿Qué beneficios recibirá?</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4>Evaluación médica comprensiva anual</h4>
+                            <p>Examen completo de salud realizado por profesionales médicos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="benefit-icon">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <h4>Pruebas preventivas</h4>
+                            <p>Detección temprana de condiciones de salud mediante pruebas especializadas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="benefit-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h4>Detección temprana</h4>
+                            <p>Identificación proactiva de factores de riesgo o condiciones de salud</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div class="benefit-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4>Servicio personalizado</h4>
+                            <p>Atención directa y personalizada según sus necesidades de salud</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="disclaimer mt-5">
+                <p><strong>Nota:</strong> LIBRE DE COPAGOS EN LOS SERVICIOS PREVENTIVOS* (Cero Copagos aplica exclusivamente a servicios preventivos. Mamografías, densidad ósea y otros estudios radiológicos requieren copagos. Cernimientos pueden variar según edad, factores de riesgo y guías clínicas.)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Algunos de los servicios y evaluaciones preventivas</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="service-list">
+                        <li>Examen físico</li>
+                        <li>Toma de presión sanguínea</li>
+                        <li>Evaluación para identificar conductas de riesgo y depresión</li>
+                        <li>Pruebas de diabetes, ITS y VIH</li>
+                        <li>Evaluación de aneurisma abdominal*</li>
+                        <li>Evaluación de cáncer colorrectal, cáncer de pulmón y cáncer de mama*</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="service-list">
+                        <li>Densidad ósea</li>
+                        <li>Medicamentos</li>
+                        <li>Referidos a especialista de ser necesario</li>
+                        <li>Orientación sobre vacunas recomendadas</li>
+                        <li>Material educativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Process -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Cómo registrarse en el programa</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <span class="step-number">1</span>
+                        <h4>Seleccione su número de contrato</h4>
+                        <p>Elija su número de contrato de la lista desplegable</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <span class="step-number">2</span>
+                        <h4>Complete el formulario</h4>
+                        <p>Proporcione su información personal y de salud</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="text-center">
+                        <span class="step-number">3</span>
+                        <h4>Reciba confirmación</h4>
+                        <p>Le contactaremos para coordinar sus servicios preventivos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="form-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Registro para CUIDATE PSM</h2>
+            <p class="text-center mb-5">Por favor, seleccione su número de contrato de PSM para comenzar el proceso de registro.</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <form id="registrationForm">
+                                <div class="mb-4">
+                                    <label for="contractNumber" class="form-label required-field">Número de Contrato de PSM</label>
+                                    <select class="form-select form-select-lg" id="contractNumber" required>
+                                        <option value="" selected disabled>Seleccione su número de contrato</option>
+                                        <!-- Contract numbers will be populated here -->
+                                    </select>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Continuar con el Registro</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>CUIDATE PSM</h5>
+                    <p>Una colaboración entre Plan de Salud Menonita y PR Concierge Med</p>
+                    <p>Programa de servicios preventivos para afiliados.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p><i class="fas fa-phone me-2"></i> (787) 123-4567</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@cuidatepsm.com</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> San Juan, Puerto Rico</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-white">Acerca de</a></li>
+                        <li><a href="#benefits" class="text-white">Beneficios</a></li>
+                        <li><a href="#services" class="text-white">Servicios</a></li>
+                        <li><a href="#register" class="text-white">Registro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="text-center">
+                <p>&copy; 2023 CUIDATE PSM. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate contract numbers
+            const contractNumbers = [
+                "00010", "00014", "00015", "00016", "00018", "00021", "00022", "00023", "00024", "00030",
+                "00031", "00038", "00040", "00042", "00043", "00044", "00045", "00046", "00049", "00055",
+                "00060", "00067", "00068", "00069", "00071", "00072", "00075", "00078", "00080", "00081",
+                "00082", "00083", "00084", "00087", "00091", "00095", "00096", "00098", "00106", "00109",
+                "00119", "00122", "00123", "00124", "00126", "00127", "00133", "00137", "00139", "00141",
+                "00152", "00153", "00155", "00189", "00221", "00229", "00231", "00241", "00271", "00279",
+                "00298", "00312", "00319", "00530", "00583", "00592", "00644", "00645", "00672", "02010",
+                "02019", "02040", "02050", "02052", "02053", "02060", "02074", "02076", "02079", "03003",
+                "03004", "03005", "03006", "03007", "03008", "03009", "03010", "03011", "03013", "03014",
+                "03017", "03018", "03019", "03021", "03022", "03027", "03030", "03032", "03035", "03036",
+                "03053", "03054", "03055", "03062", "03064", "09999", "100473", "100474", "100475", "100476",
+                "100477", "100478", "100479", "100480", "100481", "100482", "100483", "100484", "100485",
+                "100486", "100487", "100488", "100489", "100490", "100491", "100494", "100495", "100496",
+                "100497", "100498", "100499", "100500", "100501", "100502", "100503", "100505", "100506",
+                "20001", "20003", "20004", "20005", "20006", "20011", "20013", "20014", "20016", "20016",
+                "20020", "20021", "20023", "20024", "20027", "20028", "20030", "20031", "20032", "20035",
+                "20038", "20039", "20041", "20042", "20043", "20044", "20045", "20046", "20047", "20048",
+                "20049", "20050", "20051", "20053", "20054", "20055", "20056", "20057", "20117", "20134",
+                "20146", "20321", "36105", "36160", "77305", "77307", "77311", "77312", "77317", "77318",
+                "77319", "77322", "77323", "77325", "77326", "77327", "77328", "77329", "77330", "77331",
+                "77332", "77333", "77334", "77336", "77337", "77338", "77339", "77340", "77342", "77343",
+                "77344", "77347", "77348", "77350", "77351", "77352", "77353", "77354", "77355", "77356",
+                "77357", "77358", "77359", "77360", "77361", "77362", "77363", "77364", "77365", "77367",
+                "77369", "77370", "77372", "77373", "77374", "77375", "77376", "77377", "77378", "77379",
+                "77380", "77381", "77382", "77383", "77384", "77385", "77386", "77387", "77388", "77389",
+                "77390", "77391", "77392", "77393", "77394", "77395", "77396", "77397", "77398", "77399",
+                "77400", "77401", "77402", "77403", "77404", "77405", "77406", "77407", "77408", "77409",
+                "77410", "77411", "77412", "77413", "77414"
+            ];
+            
+            const contractSelect = document.getElementById('contractNumber');
+            contractNumbers.forEach(number => {
+                const option = document.createElement('option');
+                option.value = number;
+                option.textContent = number;
+                contractSelect.appendChild(option);
+            });
+            
+            // Form submission
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const contractNumber = document.getElementById('contractNumber').value;
+                if (contractNumber) {
+                    // In a real implementation, this would redirect to the intake form
+                    // For this example, we'll show an alert
+                    alert(`Redirigiendo al formulario de registro para el contrato: ${contractNumber}`);
+                    // Here you would typically redirect to the intake form page
+                    // window.location.href = `intake-form.html?contract=${contractNumber}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
