@@ -403,14 +403,12 @@
             });
             
             // Form submission
-            document.getElementById('registrationForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const contractNumber = document.getElementById('contractNumber').value;
-                if (contractNumber) {
-                    // In a real implementation, this would redirect to the intake form
-                    // For this example, we'll show an alert
-                    alert(`Redirigiendo al formulario de registro para el contrato: ${contractNumber}`);
-                    // window.location.href = `intake-form.html?contract=${contractNumber}`;
+           document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const contractNumber = document.getElementById('contractNumber').value;
+    if (contractNumber) {
+        // Redirect to Google Form
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScYOlO_p8Ck7Py5mrpbN7n8HNA2decLB5pg43wnCYogpC251g/viewform?usp=sf_link";
                 }
             });
         });
