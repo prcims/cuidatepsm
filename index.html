@@ -409,13 +409,14 @@
             
             // Form submission
             document.getElementById('registrationForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const contractNumber = document.getElementById('contractNumber').value;
-                if (contractNumber) {   alert(`Redirigiendo al formulario de registro para el contrato: ${contractNumber}`);
-                   
-                    // window.location.href = `https://forms.gle/mAFu8vHVntWq7dxH7?contract=${contractNumber}`;
-                }
-            });
+    e.preventDefault();
+    const contractNumber = document.getElementById('contractNumber').value;
+
+    if (contractNumber) {   
+        // Redirect including contract number
+        window.location.href = `https://forms.gle/mAFu8vHVntWq7dxH7?contract=${contractNumber}`;
+    }
+});
         });
     </script>
 </body>
