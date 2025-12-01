@@ -411,12 +411,9 @@
             document.getElementById('registrationForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const contractNumber = document.getElementById('contractNumber').value;
-                if (contractNumber) {
-                    // In a real implementation, this would redirect to the intake form
-                    // For this example, we'll show an alert
-                    alert(`Redirigiendo al formulario de registro para el contrato: ${contractNumber}`);
-                    // Here you would typically redirect to the intake form page
-                    // window.location.href = `intake-form.html?contract=${contractNumber}`;
+                if (contractNumber) {   alert(`Redirigiendo al formulario de registro para el contrato: ${contractNumber}`);
+                   
+                    // window.location.href = `https://forms.gle/mAFu8vHVntWq7dxH7?contract=${contractNumber}`;
                 }
             });
         });
